@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import make_blobs
 import pandas as pd
 
-filename = 'cluster_2'
+filename = 'cluster_4_data_points'
 grid_count = 64
-output_txt_file = "input/cluster_2_grid_64_64.txt"
+output_txt_file = "input/cluster_4_grid_64_64.txt"
 percentage_weight_for_empty_point = 0.75
 
 min_x_axis = 0
@@ -35,8 +35,21 @@ plt.yticks(np.arange(min_y_axis, max_y_axis, 1))
 plt.show()
 fig.savefig("input/" + filename + "_image.png")
 
+fig1, ax = plt.subplots()
+plt.scatter(X1[:, 0], X1[:, 1], label='500 Samples')
+plt.scatter(X2[:, 0], X2[:, 1], label='200 Samples')
+plt.scatter(X3[:, 0], X3[:, 1], label='100 Samples')
+plt.scatter(X4[:, 0], X4[:, 1], label='100 Samples')
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.xticks(np.arange(min_x_axis, max_x_axis, 1))
+plt.yticks(np.arange(min_y_axis, max_y_axis, 1))
+ax.legend()
+plt.show()
+fig1.savefig("input/" + filename + "_color_image.png")
 
-csv_filename = "input/" + filename + "_datapoints.csv"
+
+csv_filename = "input/" + filename + ".csv"
 with open(csv_filename, 'w') as f:
     for i in range(len(X[:])):
         f.write("{:.4f},".format(X[:, 0][i]) + "{:.4f}\n".format(X[:, 1][i]))
@@ -67,7 +80,7 @@ N = len(x)
 for j in range(grid_count_vertical):
     for i in range(grid_count_horizontal):
         weight = 0
-        print('(i, j)=(' + str(i) + ', ' + str(j) +')')
+        #print('(i, j)=(' + str(i) + ', ' + str(j) +')')
 
         x_low_lim = min_x + inc_x * i
         x_up_lim = min_x + inc_x * (i + 1)

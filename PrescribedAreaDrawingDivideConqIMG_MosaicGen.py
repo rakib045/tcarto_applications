@@ -39,22 +39,26 @@ class node:
 # the name of a node at point i,j is ij
 
 
-#python PrescribedAreaDrawingDivideConqIMG_MosaicGen.py 64 "input/PBLH_10_new_grid64_64.txt" "DivConImg_PBLH_10_new_grid64_64" "input/weather_tsk.png"
+#python PrescribedAreaDrawingDivideConqIMG_MosaicGen.py 32 "input/Mosaic03_mosaic_randomweight_32_32.txt" "input/GI_21.png" "output_DivCon_mosaic_randomweight_32_32"
 # First param = python file name
 # Second Param = square grid
 # Third Param = Input Data File
-# Forth Param = Output File Name
-'''
+# Forth Param = Input Image File
+# Fifth Param = Output File Name
+
+
 square_grid = int(sys.argv[1])
 input_data_file = sys.argv[2]
-output_img_filename = sys.argv[3]
-input_img_file = sys.argv[4]
-'''
+output_img_filename = sys.argv[4]
+input_img_file = sys.argv[3]
 
-square_grid = 16
-input_data_file = 'input/Mosaic02_mosaic_randomweight_16_16.txt'
-output_img_filename = 'output_DivCon_mosaic_randomweight_16_16'
-input_img_file = "input/mosaic02.jpg"
+
+'''
+square_grid = 32
+input_data_file = "input/Mosaic03_mosaic_randomweight_32_32.txt"
+input_img_file = "input/GI_21.png"
+output_img_filename = 'output_DivCon_mosaic_randomweight_32_32'
+'''
 
 
 grid_count_horizontal_actual = square_grid

@@ -42,7 +42,7 @@ class node:
 # the name of a node at point i,j is ij
 
 
-# python PrescribedAreaDrawingDivideConqIMG.py 64 "input/PBLH_10_new_grid64_64.txt" "DivConImg_PBLH_10_new_grid64_64" "input/weather_tsk.png"
+# python PrescribedAreaDrawingDivideConqIMG_LightnessOnArea.py 128 'input/LowLightImageEnhancement_lightness_weight_128_128.txt' "input/LowLightImageEnhancement.png" 'output_DivCon_room_lightness'
 # First param = python file name
 # Second Param = square grid
 # Third Param = Input Data File
@@ -50,8 +50,8 @@ class node:
 '''
 square_grid = int(sys.argv[1])
 input_data_file = sys.argv[2]
-output_img_filename = sys.argv[3]
-input_img_file = sys.argv[4]
+output_img_filename = sys.argv[4]
+input_img_file = sys.argv[3]
 '''
 
 square_grid = 128

@@ -1106,7 +1106,7 @@ def newImageDraw(input_image, nodes, filename, grid_count_horizontal, grid_count
                                         (grid_count_vertical - nodes[i + 1][j - 1].loc.y) * factor_y))
                         , tuple(Point2D(nodes[i + 1][j].loc.x * factor_x,
                                         (grid_count_vertical - nodes[i + 1][j].loc.y) * factor_y))]
-                    , fill="white", width=7)
+                    , fill="black", width=5)
 
         actualFileName = 'output/' + filename + '_with_border.png'
         im.save(actualFileName)
