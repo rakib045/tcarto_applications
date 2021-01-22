@@ -44,16 +44,16 @@ class node:
 # Second Param = square grid
 # Third Param = Input Data File
 # Forth Param = Output File Name
-'''
+
 square_grid = int(sys.argv[1])
 input_data_file = sys.argv[2]
 output_img_filename = sys.argv[3]
-'''
 
+'''
 square_grid = 64
 input_data_file = 'input/cluster_4_grid_64_64.txt'
 output_img_filename = 'output_DivCon_cluster_4_grid_64_64'
-
+'''
 
 output_image_size = [1024, 1024]
 grid_count_horizontal_actual = square_grid

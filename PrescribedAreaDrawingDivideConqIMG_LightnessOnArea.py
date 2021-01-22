@@ -47,7 +47,7 @@ class node:
 # Second Param = square grid
 # Third Param = Input Data File
 # Forth Param = Output File Name
-'''
+
 square_grid = int(sys.argv[1])
 input_data_file = sys.argv[2]
 output_img_filename = sys.argv[4]
@@ -58,7 +58,7 @@ square_grid = 128
 input_data_file_area = 'input/LowLightImageEnhancement_lightness_weight_128_128.txt'
 output_img_filename = 'output_DivCon_room_lightness'
 input_img_file = "input/LowLightImageEnhancement.png"
-
+'''
 grid_count_horizontal_actual = square_grid
 grid_count_vertical_actual = square_grid
 cpu_count = mp.cpu_count()

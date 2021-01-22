@@ -926,21 +926,21 @@ def poly_draw_grid_color_wtih_scale(filename, it, im_size, nodes, values, grid_c
                 , fill=color_hex)
             # , fill=current_palette[color_index], outline="black")
 
-    imagestring = 'output//' + filename + '_table_cartogram-' + str(grid_count_horizontal) + '_' \
-                  + str(grid_count_vertical) + ' iterations' + str((it)) + '.png'
+    imagestring = 'output//' + filename + ' iterations' + str((it)) + '.png'
     img.save(imagestring)
 
     img_blurred = img.filter(ImageFilter.GaussianBlur(radius=15))
 
-    img_blurred.save('output/test_blurred_image.png')
+    img_blurred.save('output//' + filename + '_blurred_image.png')
     image_contour = np.asarray(img_blurred)
 
     image_contour = np.flipud(image_contour)
     Z = image_contour[:, :, 0]
 
-    plt.contourf(Z, levels=50, cmap='RdGy')
-
-    plt.savefig('output/test_image.png')
+    #plt.contourf(Z, levels=50, cmap='RdGy')
+    plt.contourf(Z, levels=50, cmap='viridis_r')
+    plt.colorbar()
+    plt.savefig('output//' + filename + '_contour_output.png')
 
 
 def poly_draw_top_to_bottom(filename, im_size, nodes, grid_count_horizontal, grid_count_vertical):

@@ -54,7 +54,7 @@ input_data_file -> A (.txt) file as an input data file having weights of each an
 
 output_log_and_image_filename -> This is just the filename for the output image and output log file
 
----
+ 
 # Different Algorithms
 
 There are three algorithms that we want to run and compare for different datasets.
@@ -67,7 +67,7 @@ Our approaches:
 * Divide and Conquer (DIV-CON) Approach
 
 ## 1. Base Case
----
+ 
 In 2013, Evans et al. proven on their [Table Cartogram](https://www.sciencedirect.com/science/article/abs/pii/S0925772117300627) paper that a table cartogram always exists in a rectangle and it is an _O(mn)_-time algorithm. We consider this as base case.
 
 You can run this with below command:
@@ -79,7 +79,7 @@ For example,
 The ouputs will always be generated inside _output_ folder.
 
 ## 2. Parallel Optimization (Parallel-OPT)
----
+ 
 We have parallelized the quadratic optimiztion task for each node into different CPU. The running-time completely depends on the number of CPU.
 
 You can run this with below command:
@@ -91,7 +91,7 @@ For example,
 The ouputs will always be generated inside _output_ folder.
 
 ## 3. Divide and Conquer (DIV-CON) Approach
----
+ 
 We have distributed the weights into different parts at an earlier stage so that it can reach its final output faster.
 
 You can run this with below command:
@@ -102,7 +102,7 @@ For example,
 
 The ouputs will always be generated inside _output_ folder.
 
----
+ 
 # Different Applications of DIV-CON Approch
 
 ## 1. Mosaic Image Generation
