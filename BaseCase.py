@@ -13,17 +13,19 @@ from skimage.measure import *
 # Forth Param = Input Image File
 # Fifth Param = Output File Name
 
+'''
 square_grid = int(sys.argv[1])
 input_data_file = sys.argv[2]
 input_img_file = sys.argv[3]
 output_img_filename = sys.argv[4]
+'''
 
+square_grid = 64
+input_data_file = "input/PBLH_64_64.txt"
+input_img_file = 'input/EMISS512.png'
+output_img_filename = "Basecase_PBLH_EMISS_64_64"
 
-#square_grid = 8
-#input_data_file = 'input/weight_8_8.txt'
-#input_img_file = 'input/weather_tsk.png'
-#output_img_filename = 'output_GC'
-
+size_output_image = [512, 512]
 # When is_stop_with_rmse = True, rmse_threshold will work only then. Iteration stops when it crosses rmse less than threshold
 is_stop_with_rmse = False
 rmse_threshold = 0.18
@@ -394,13 +396,15 @@ def updatedNodeGeneralCase(nodes, values, targeted_nodes, grid_count_horizontal,
 
     return nodes
 
-def run_GeneralCase(input_img_file, input_data_file, square_grid, output_img_filename):
+def run_GeneralCase(input_data_file, square_grid, output_img_filename, input_img_file=""):
     grid_count_horizontal_actual = square_grid
     grid_count_vertical_actual = square_grid
 
-    input_image = Image.open(input_img_file)
-    input_image = input_image.convert("RGBA")
-    output_image_size = input_image.size
+
+    if input_img_file != "":
+        input_image = Image.open(input_img_file)
+        input_image = input_image.convert("RGBA")
+    output_image_size = size_output_image
 
     pre_processing_start_time = time()
     values_actual = read_text_file_actual_order(input_data_file, grid_count_horizontal_actual,
@@ -424,8 +428,8 @@ def run_GeneralCase(input_img_file, input_data_file, square_grid, output_img_fil
         output_txt_file = open(out_file_name, "w")
         output_txt_file.write("Iteration, |UV-EV|/EV, UV/EV - 1, RMSE, MQE = (((|UV-EV|/EV) ** 2) ** 0.5)/N, " +
                               "Updated MQE = (((|UV-EV|/(UV+EV)) ** 2) ** 0.5)/N, " +
-                              "Average Aspect Ratio min(height/width)/max(height/width), " +
-                              "Average Aspect Ratio (height/width), Processing Time(sec)\n")
+                              "Average Aspect Ratio (height/width), Average Aspect Ratio min(height/width)/max(height/width), " +
+                              "Processing Time(sec)\n")
         output_txt_file.close()
         print("Pre Processing time(sec): " + str(round(pre_processing_time, 4)))
 
@@ -461,7 +465,8 @@ def run_GeneralCase(input_img_file, input_data_file, square_grid, output_img_fil
         poly_draw_top_to_bottom("output_generalCase", output_image_size, nodes,
                                 grid_count_horizontal_actual, grid_count_vertical_actual)
 
-        output_image_path = newImageDrawTopToBottom(input_image, nodes, output_img_filename + '_image',
+        if input_img_file != "":
+            output_image_path = newImageDrawTopToBottom(input_image, nodes, output_img_filename + '_image',
                                                     grid_count_horizontal_actual,
                                                     grid_count_vertical_actual)
 
@@ -481,30 +486,34 @@ def run_GeneralCase(input_img_file, input_data_file, square_grid, output_img_fil
         print("Processing time(sec): " + str(round(pre_processing_time, 4)))
         poly_draw_top_to_bottom("output_generalCase_errorless", output_image_size, targeted_nodes,
                                 grid_count_horizontal_actual, grid_count_vertical_actual)
-        output_image_path = newImageDrawTopToBottom(input_image, targeted_nodes, output_img_filename + '_errorless_image',
+
+        if input_img_file != "":
+            output_image_path = newImageDrawTopToBottom(input_image, targeted_nodes, output_img_filename + '_errorless_image',
                                                grid_count_horizontal_actual,
                                                grid_count_vertical_actual)
 
         all_error_print(values, targeted_nodes, grid_count_horizontal_actual, grid_count_vertical_actual,
                         pre_processing_time, output_img_filename)
 
-    output_image = Image.open(output_image_path)
-    out_image = np.asarray(output_image.convert("RGBA"))
-    in_image = np.asarray(input_image)
+    if input_img_file != "":
+        output_image = Image.open(output_image_path)
+        out_image = np.asarray(output_image.convert("RGBA"))
+        in_image = np.asarray(input_image)
 
-    mse_error = compare_mse(in_image, out_image)
-    psnr_error = compare_psnr(in_image, out_image)
-    ssim_error = compare_ssim(in_image, out_image, multichannel=True)
+        mse_error = compare_mse(in_image, out_image)
+        psnr_error = compare_psnr(in_image, out_image)
+        ssim_error = compare_ssim(in_image, out_image, multichannel=True)
 
-    processing_time = pre_processing_time + np.sum(total_algo_iteration_processing_time)
+        processing_time = pre_processing_time + np.sum(total_algo_iteration_processing_time)
 
-    output_txt_file = open(out_file_name, "a")
-    output_txt_file.write("\n\nTotal Processing Time(sec): " + str(round(processing_time, 4)) + "\n")
-    output_txt_file.write("\nMSE : " + str(round(mse_error, 4)) + "\n")
-    output_txt_file.write("PSNR : " + str(round(psnr_error, 4)) + "\n")
-    output_txt_file.write("SSIM : " + str(round(ssim_error, 4)) + "\n")
-    output_txt_file.close()
+        output_txt_file = open(out_file_name, "a")
+        output_txt_file.write("\n\nTotal Processing Time(sec): " + str(round(processing_time, 4)) + "\n")
+        output_txt_file.write("\nMSE : " + str(round(mse_error, 4)) + "\n")
+        output_txt_file.write("PSNR : " + str(round(psnr_error, 4)) + "\n")
+        output_txt_file.write("SSIM : " + str(round(ssim_error, 4)) + "\n")
+        output_txt_file.close()
 
 
 if __name__ == '__main__':
-    run_GeneralCase(input_img_file, input_data_file, square_grid, output_img_filename)
+    #run_GeneralCase(input_data_file, square_grid, output_img_filename,input_img_file)
+    run_GeneralCase(input_data_file, square_grid, output_img_filename)

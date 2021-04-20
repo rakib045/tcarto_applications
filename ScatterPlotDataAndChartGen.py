@@ -3,9 +3,9 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import make_blobs
 import pandas as pd
 
-filename = 'cluster_4_data_points'
+filename = 'cluster_4_data_points_v2'
 grid_count = 64
-output_txt_file = "input/cluster_4_grid_64_64.txt"
+output_txt_file = "input/cluster_4_grid_64_64_v2.txt"
 percentage_weight_for_empty_point = 0.75
 
 min_x_axis = 0
@@ -14,10 +14,26 @@ min_y_axis = 0
 max_y_axis = 1024
 
 scale = 100
+'''
+# Uncomment for v0
 centers1 = [(2.5, 2.5)]
 centers2 = [(7.5, 7.5)]
 centers3 = [(2.5, 7.5)]
 centers4 = [(4, 6)]
+'''
+'''
+# Uncomment for v1
+centers1 = [(2.0, 2.0)]
+centers2 = [(8.0, 5.0)]
+centers3 = [(2.0, 7.0)]
+centers4 = [(5.5, 8)]
+'''
+
+# Uncomment for v2
+centers1 = [(4.5, 4.5)]
+centers2 = [(6.5, 5.0)]
+centers3 = [(6.0, 7.0)]
+centers4 = [(4.5, 6.5)]
 
 print('Data is generating ...')
 X1, y1 = make_blobs(n_samples=500, centers=centers1, n_features=2, cluster_std=0.3, random_state=42,)

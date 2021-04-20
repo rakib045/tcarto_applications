@@ -1,0 +1,4 @@
+Iteration, |UV-EV|/EV, UV/EV - 1, RMSE, MQE = (((|UV-EV|/EV) ** 2) ** 0.5)/N, Updated MQE = (((|UV-EV|/(UV+EV)) ** 2) ** 0.5)/N, Average Aspect Ratio (height/width),Average Aspect Ratio min(height/width)/max(height/width), Iteration Time(sec)
+1, 0.6704, 0.4389, 0.781, 0.0244, 0.009547, 1.026973, 0.88742, 51.9197
+2, 0.6478, 0.4229, 0.749, 0.0234, 0.009472, 1.040442, 0.863322, 75.9781
+3, 0.6376, 0.415, 0.7353, 0.023, 0.009528, 1.055053, 0.843662, 73.3276

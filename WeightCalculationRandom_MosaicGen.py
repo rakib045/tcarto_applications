@@ -4,8 +4,8 @@ from collections import Counter
 import itertools
 
 
-square_grid = 32
-output_weight_filename = "Mosaic03_mosaic_randomweight_32_32"
+square_grid = 16
+output_weight_filename = "Diagram21_randomweight_16_16"
 min_weight_range = 1
 max_weight_range = 1.6
 

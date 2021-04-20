@@ -1,31 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b614f79-0b9d-4b62-98ce-c5d58cf247a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Datasets.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrescribedAreaDrawingDivideConqIMG_LightnessOnArea.py" beforeDir="false" afterPath="$PROJECT_DIR$/PrescribedAreaDrawingDivideConqIMG_LightnessOnArea.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrescribedAreaDrawingDivideConq_ScatterPlot.py" beforeDir="false" afterPath="$PROJECT_DIR$/PrescribedAreaDrawingDivideConq_ScatterPlot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ScatterPlotDataAndChartGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/ScatterPlotDataAndChartGen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/energyMinimization.py" beforeDir="false" afterPath="$PROJECT_DIR$/energyMinimization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/cluster_2_color_image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/cluster_2_image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/cluster_4_data_points.csv" beforeDir="false" afterPath="$PROJECT_DIR$/input/cluster_4_data_points.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/cluster_4_data_points_color_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/input/cluster_4_data_points_color_image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/cluster_4_data_points_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/input/cluster_4_data_points_image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/cluster_4_grid_64_64.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/cluster_4_grid_64_64.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/Correlation_WeatherData/Smois_ALBEDO/ALBEDO512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/lightness_blurred_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/lightness_blurred_image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/lightness_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/lightness_image.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_log_output_DivCon_cluster_4_grid_64_64.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_log_output_DivCon_cluster_4_grid_64_64.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out_log_output_DivCon_room_lightness.txt" beforeDir="false" afterPath="$PROJECT_DIR$/output/out_log_output_DivCon_room_lightness.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output_DivCon_cluster_4_grid_64_64_color_grid__table_cartogram-64_64 iterations3_stage6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output_DivCon_cluster_4_grid_64_64_table_cartogram-64_64 iterations3_stage6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output_DivCon_room_lightness.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/output_DivCon_room_lightness.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output_DivCon_room_lightness_table_cartogram-128_128 iterations3_stage7.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/output_DivCon_room_lightness_table_cartogram-128_128 iterations3_stage7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/output_DivCon_room_lightness_table_cartogram-128_128.png" beforeDir="false" afterPath="$PROJECT_DIR$/output/output_DivCon_room_lightness_table_cartogram-128_128.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/test_blurred_image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/test_image.png" beforeDir="false" />
+    <list default="true" id="0b614f79-0b9d-4b62-98ce-c5d58cf247a4" name="Default Changelist" comment="Git Update with dataset, input and output images">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +20,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TCarto" />
   </component>
   <component name="RunManager">
     <configuration name="ScatterPlotDataAndChartGen" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -96,21 +73,37 @@
       <option name="presentableId" value="Default" />
       <updated>1611338358770</updated>
     </task>
+    <task id="LOCAL-00001" summary="Git Update with dataset, input and output images">
+      <created>1611354263586</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611354263586</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Git Update with dataset, input and output images" />
+    <option name="LAST_COMMIT_MESSAGE" value="Git Update with dataset, input and output images" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611339798930">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611339798930" />
-    <state x="516" y="115" key="CommitChangelistDialog2" timestamp="1611354199761">
+    <state x="516" y="115" key="CommitChangelistDialog2" timestamp="1611354271302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="516" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1611354199761" />
+    <state x="516" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1611354271302" />
     <state x="184" y="92" key="DiffContextDialog" timestamp="1611353836869">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="92" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611353836869" />
+    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1611539667636">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1611539667636" />
     <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1611339804654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -131,5 +124,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="624" y="243" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611353840223" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1611354333665">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611354333665" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1611539629060">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611539629060" />
+    <state x="662" y="312" key="git4idea.merge.GitPullDialog" timestamp="1611354326616">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="662" y="312" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611354326616" />
   </component>
 </project>

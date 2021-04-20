@@ -6,9 +6,9 @@ import itertools
 import colorsys
 import math
 
-square_grid = 128
-input_image_file = "input/LowLightImageEnhancement.png"
-output_weight_filename = "input/LowLightImageEnhancement_lightness_weight_128_128.txt"
+square_grid = 64
+input_image_file = "input/image3.png"
+output_weight_filename = "input/image3_lightness_weight_64_64.txt"
 
 
 
