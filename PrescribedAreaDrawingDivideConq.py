@@ -51,9 +51,9 @@ input_data_file = sys.argv[2]
 output_img_filename = sys.argv[3]
 '''
 
-square_grid = 32
-input_data_file = "input/Migration/Migrations_US_2017.txt"
-output_img_filename = "TCarto_DivideAndConq_migration_us_2017"
+square_grid = 8
+input_data_file = "input/Migrations_US_Table_2018_8_8_grid.txt"
+output_img_filename = "TCarto_DivideAndConq_Migrations_US_Table_2018_8_8"
 
 
 grid_count_horizontal_actual = square_grid

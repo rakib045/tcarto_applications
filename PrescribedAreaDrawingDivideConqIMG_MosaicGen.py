@@ -55,9 +55,9 @@ input_img_file = sys.argv[3]
 
 '''
 square_grid = 16
-input_data_file = "input/Diagram21_randomweight_16_16.txt"
-input_img_file = "input/Diagram21.png"
-output_img_filename = 'output_diagram21_mosaic_randomweight_16_16'
+input_data_file = "input/Whistlejacket_randomweight_16_16.txt"
+input_img_file = "input/Whistlejacket.jpg"
+output_img_filename = 'output_Whistlejacket_mosaic_randomweight_16_16'
 
 
 

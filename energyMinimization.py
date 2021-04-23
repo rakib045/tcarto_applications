@@ -893,7 +893,8 @@ def poly_draw_for_maxflow(filename, im_size, nodes, grid_count_horizontal, grid_
                           Point2D(nodes[i][j - 1].loc.x, (grid_count_vertical - nodes[i][j - 1].loc.y)),
                           Point2D(nodes[i + 1][j - 1].loc.x, (grid_count_vertical - nodes[i + 1][j - 1].loc.y)),
                           Point2D(nodes[i+1][j].loc.x, (grid_count_vertical - nodes[i+1][j].loc.y)))
-            area = abs(pol.area)
+            #area = abs(pol.area)
+            #print(pol)
             if not pol.is_convex():
                 count_concave += 1
 
@@ -1151,7 +1152,7 @@ def newImageDraw(input_image, nodes, filename, grid_count_horizontal, grid_count
                                         (grid_count_vertical - nodes[i + 1][j - 1].loc.y) * factor_y))
                         , tuple(Point2D(nodes[i + 1][j].loc.x * factor_x,
                                         (grid_count_vertical - nodes[i + 1][j].loc.y) * factor_y))]
-                    , fill="grey", width=5)
+                    , fill="white", width=3)
 
         actualFileName = 'output/' + filename + '_with_border.png'
         im.save(actualFileName)

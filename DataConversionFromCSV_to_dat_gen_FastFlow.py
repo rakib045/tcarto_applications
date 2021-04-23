@@ -12,8 +12,8 @@ grid = 16
 #input_file_name_list = ["Checker_Data_20_32_32.txt", "Checker_Data_40_32_32.txt", "Checker_Data_60_32_32.txt",
 #                        "Checker_Data_80_32_32.txt", "Checker_Data_100_32_32.txt"]
 
-file_path = "Datasets/RandomCheckerData/"
-input_file_name_list = ["Checker_s_1_100_16by16.txt"]
+file_path = "Datasets/Applications/mosaic/Fast Flow/Image_4/"
+input_file_name_list = ["Whistlejacket_randomweight_16_16.txt"]
 
 for input_file_name in input_file_name_list:
     output_file_name = input_file_name.split('.')[0]

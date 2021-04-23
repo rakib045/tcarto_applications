@@ -9,9 +9,9 @@ from pandas import DataFrame
 
 
 null_grid_weight = 0.8
-filepath = "Datasets/"
+filepath = "input/"
 # grid=[2,4,8,16,32,64,128,256,512,1024]
-grid = [32]
+grid = [8]
 zero_zero_val = 1.0
 zero_one_val = 10.0
 

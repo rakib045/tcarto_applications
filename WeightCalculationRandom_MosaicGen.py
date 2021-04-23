@@ -5,9 +5,9 @@ import itertools
 
 
 square_grid = 16
-output_weight_filename = "Diagram21_randomweight_16_16"
+output_weight_filename = "Whistlejacket_randomweight_16_16"
 min_weight_range = 1
-max_weight_range = 1.6
+max_weight_range = 2
 
 #########################################################################
 
