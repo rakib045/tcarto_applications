@@ -103,6 +103,7 @@ for occ in occurence_count:
 
     if occ[0] == occ[1] == occ[2]:
         if occ[0] < 100:
+
             black_count += occurence_count[occ]
 
 print("Output Image : total = " + str(total_count))
