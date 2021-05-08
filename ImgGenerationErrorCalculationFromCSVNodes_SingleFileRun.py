@@ -11,15 +11,15 @@ class node:
         self.loc = loc
 
 
-input_node_data_file = "Datasets/US_State_Migration/FastFlow/FastFlowOutput/final_nodes_2015.csv"
-input_weight_data_file = "Datasets/US_State_Migration/FastFlow/Weights/Migrations_US_2015.txt"
+input_node_data_file = "input/final_nodes_ALBEDO_64_64.csv"
+input_weight_data_file = "input/ALBEDO_64_64.txt"
 
-output_filename = 'output_US_Migration_2015_32_32'
-square_grid = 32
+output_filename = 'ALBEDO_TSK_64_64'
+square_grid = 64
 output_image_size = [512, 512]
 
-is_image_output = False
-input_img_file = "Datasets/GeneratedData/MaxFlow Output/EMISS512.png"
+is_image_output = True
+input_img_file = "input/TSK_512.png"
 
 
 
@@ -80,7 +80,7 @@ if __name__ == "__main__":
         input_image = input_image.convert("RGBA")
         output_image_size = input_image.size
 
-        output_image_path = imageDrawForMaxFlow(input_image, nodes, output_filename + "_output.png", grid_horiz, grid_vert)
+        output_image_path = imageDrawForMaxFlow(input_image, nodes, "output/" + output_filename + "_output.png", grid_horiz, grid_vert)
 
         output_image = Image.open(output_image_path)
         out_image = np.asarray(output_image.convert("RGBA"))

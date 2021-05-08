@@ -3,10 +3,10 @@ import csv
 from collections import Counter
 import itertools
 
-square_grid = 64
-input_data_file = "input/weight_info.csv"
-input_image_file = "input/VIS.png"
-output_weight_filename = "vis_weight_64_64"
+square_grid = 128
+input_data_file = "input/weight_info_vinci_bw.csv"
+input_image_file = "input/VINCI_logo_bw.png"
+output_weight_filename = "vinci_weight_128_128"
 
 color_column_name = "COLOR"
 weight_column_name = "VALUE"
@@ -15,7 +15,7 @@ label_column_name = "ITEM"
 neutral_color = "#FFFFFF"
 #neutral_color_weight = 30
 min_weight_range = 1
-max_weight_range = 10
+max_weight_range = 2
 
 #########################################################################
 

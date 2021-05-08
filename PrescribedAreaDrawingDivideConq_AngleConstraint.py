@@ -56,8 +56,8 @@ output_img_filename = sys.argv[3]
 
 square_grid = 32
 input_data_file = "input/Migrations_US_2018.txt"
-output_img_filename = "TCarto_DivideAndConq_angle30_US_Migration_2018_32_32"
-min_angle_in_degree = 30
+output_img_filename = "TCarto_DivideAndConq_angle75_Migrations_US_2018_32_32"
+min_angle_in_degree = 75
 
 grid_count_horizontal_actual = square_grid
 grid_count_vertical_actual = square_grid
@@ -676,8 +676,6 @@ if __name__ == "__main__":
     print("Algorithm Finished !! ")
     print("Drawing Polygon ... ")
 
-    poly_draw(output_img_filename, str(iteration) + "_stage" + str(int(m.log(grid_count_horizontal_actual, 2))),
-              output_image_size,
-              nodes, grid_count_horizontal_actual, grid_count_vertical_actual)
+    poly_draw_heatMap(output_img_filename, output_image_size, nodes, values, grid_count_horizontal_actual, grid_count_vertical_actual)
 
     print("Finished everything!")

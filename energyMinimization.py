@@ -13,6 +13,7 @@ import math as m
 import shapefile
 import colorsys
 from cvxopt import matrix, solvers
+from random import randint
 
 from energyMinimization import *
 from sympy import symbols
@@ -867,6 +868,69 @@ def poly_draw(filename, it, im_size, nodes, grid_count_horizontal, grid_count_ve
     img.save(imagestring)
     print("\nNumber of Concave polygon : " + str(count_concave))
 
+def poly_draw_heatMap(filename, im_size, nodes, values, grid_count_horizontal, grid_count_vertical):
+    # Create an empty image
+
+    count_concave = 0
+
+    factor_x = int(im_size[0] / grid_count_horizontal)
+    factor_y = int(im_size[1] / grid_count_vertical)
+
+    img = Image.new('RGB', (grid_count_horizontal * factor_x, grid_count_vertical * factor_y), color=(73, 109, 137))
+    d = ImageDraw.Draw(img)
+    # Define a set of random color to color the faces
+
+    # this is the factor to scale up the image
+
+    minVal = np.min(values)
+    maxVal = np.max(values)
+    #colour = ["#b30000", "#d7301f", "#ef6548", "#fc8d59", "#fdbb84", "#fdd49e", "#fee8c8", "#fff7ec", "#ffffff"]
+    colour = ["#FDFAE9", "#FCF7D5", "#F2F4C1", "#EBF0B5", "#DDEBC0", "#CFE6C8", "#C2E5D3", "#B6DCD8", "#A6D8DC", "#9DD2E0"]
+    scale_ticks = np.linspace(minVal, maxVal, len(colour)+1)
+
+    # Draw all the faces
+
+    for i in range(grid_count_horizontal):
+        for j in range(grid_count_vertical, 0, -1):
+            pol = Polygon(Point2D(nodes[i][j].loc.x, (grid_count_vertical - nodes[i][j].loc.y)),
+                          Point2D(nodes[i][j - 1].loc.x, (grid_count_vertical - nodes[i][j - 1].loc.y)),
+                          Point2D(nodes[i + 1][j - 1].loc.x, (grid_count_vertical - nodes[i + 1][j - 1].loc.y)),
+                          Point2D(nodes[i + 1][j].loc.x, (grid_count_vertical - nodes[i + 1][j].loc.y)))
+            area = abs(pol.area)
+
+            index = 0
+            for ind in range(len(scale_ticks) - 1):
+                if values[i][j-1] <= scale_ticks[ind + 1]:
+                    index = ind
+                    break
+            #print(index)
+
+            if not pol.is_convex():
+                count_concave += 1
+                d.polygon(
+                    [tuple(Point2D(nodes[i][j].loc.x * factor_x, (grid_count_vertical - nodes[i][j].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i][j - 1].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i][j - 1].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i + 1][j - 1].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i + 1][j - 1].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i + 1][j].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i + 1][j].loc.y) * factor_y))]
+                    , fill="red", outline="red")
+                print(pol)
+            else:
+                d.polygon(
+                    [tuple(Point2D(nodes[i][j].loc.x * factor_x, (grid_count_vertical - nodes[i][j].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i][j - 1].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i][j - 1].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i + 1][j - 1].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i + 1][j - 1].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i + 1][j].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i + 1][j].loc.y) * factor_y))]
+                    , fill=colour[index], outline="black")
+
+    imagestring = 'output//' + filename + '_heatmap_grid.png'
+    img.save(imagestring)
+    print("\nNumber of Concave polygon : " + str(count_concave))
 
 def poly_draw_important_cell(filename, it, im_size, nodes, grid_count_horizontal, grid_count_vertical):
     # Create an empty image
@@ -896,8 +960,10 @@ def poly_draw_important_cell(filename, it, im_size, nodes, grid_count_horizontal
                 count_concave += 1
 
             if area > imp_cell_threshold:
-                colour = ["#006C40", "#F8D100"]
+                colour = ["#C2372C", "#FF660E"]
+                #colour = ["#006C40", "#F8D100"]
             else:
+                #colour = ["#FEF79D", "#8CB492"]
                 colour = ["#FEF3D2", "#FFE6E6"]
 
             if not pol.is_convex():
@@ -966,6 +1032,66 @@ def poly_draw_for_maxflow(filename, im_size, nodes, grid_count_horizontal, grid_
                 , fill="black", outline="cyan")
             # d.text(Point2D(nodes[i][j].loc.x * factor_x,
             #              (grid_count_vertical - nodes[i][j].loc.y) * factor_y), str(i)+ "_" +str(j))
+    imagestring = filename
+    img.save(imagestring)
+    print("\nNumber of Concave polygon : " + str(count_concave))
+
+
+def poly_draw_color_for_maxflow(filename, im_size, nodes, grid_count_horizontal, grid_count_vertical):
+    # Create an empty image
+    count_concave = 0
+
+    factor_x = int(im_size[0] / grid_count_horizontal)
+    factor_y = int(im_size[1] / grid_count_vertical)
+
+    img = Image.new('RGB', (grid_count_horizontal * factor_x, grid_count_vertical * factor_y), color=(73, 109, 137))
+    d = ImageDraw.Draw(img)
+    # Define a set of random color to color the faces
+    colour = ["red", "blue", "green", "yellow", "purple", "orange", "white", "black"]
+    # this is the factor to scale up the image
+
+    # Draw all the faces
+
+    for i in range(grid_count_horizontal):
+        for j in range(grid_count_vertical, 0, -1):
+            pol = Polygon(Point2D(nodes[i][j].loc.x, (grid_count_vertical - nodes[i][j].loc.y)),
+                          Point2D(nodes[i][j - 1].loc.x, (grid_count_vertical - nodes[i][j - 1].loc.y)),
+                          Point2D(nodes[i + 1][j - 1].loc.x, (grid_count_vertical - nodes[i + 1][j - 1].loc.y)),
+                          Point2D(nodes[i + 1][j].loc.x, (grid_count_vertical - nodes[i + 1][j].loc.y)))
+
+            area = abs(pol.area)
+            if not pol.is_convex():
+                count_concave += 1
+
+            if area > imp_cell_threshold:
+                colour = ["#C2372C", "#FF660E"]
+                # colour = ["#006C40", "#F8D100"]
+            else:
+                # colour = ["#FEF79D", "#8CB492"]
+                colour = ["#FEF3D2", "#FFE6E6"]
+
+            if not pol.is_convex():
+                count_concave += 1
+                d.polygon(
+                    [tuple(Point2D(nodes[i][j].loc.x * factor_x, (grid_count_vertical - nodes[i][j].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i][j - 1].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i][j - 1].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i + 1][j - 1].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i + 1][j - 1].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i + 1][j].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i + 1][j].loc.y) * factor_y))]
+                    , fill="red", outline="red")
+            else:
+                d.polygon(
+                    [tuple(Point2D(nodes[i][j].loc.x * factor_x, (grid_count_vertical - nodes[i][j].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i][j - 1].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i][j - 1].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i + 1][j - 1].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i + 1][j - 1].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i + 1][j].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i + 1][j].loc.y) * factor_y))]
+                    , fill=colour[(i + j) % 2], outline="grey")
+
     imagestring = filename
     img.save(imagestring)
     print("\nNumber of Concave polygon : " + str(count_concave))
@@ -1224,13 +1350,74 @@ def newImageDraw(input_image, nodes, filename, grid_count_horizontal, grid_count
                                         (grid_count_vertical - nodes[i + 1][j - 1].loc.y) * factor_y))
                         , tuple(Point2D(nodes[i + 1][j].loc.x * factor_x,
                                         (grid_count_vertical - nodes[i + 1][j].loc.y) * factor_y))]
-                    , fill="white", width=3)
+                    , fill="white", width=1)
 
         actualFileName = 'output/' + filename + '_with_border.png'
         im.save(actualFileName)
 
     return output_path
 
+def newImageDrawWithRandomBorder(input_image, nodes, filename, grid_count_horizontal, grid_count_vertical, is_draw_border=False):
+    output_image_size = input_image.size
+    factor_x = int(output_image_size[0] / grid_count_horizontal)
+    factor_y = int(output_image_size[1] / grid_count_vertical)
+
+    dst = []
+    for i in range(grid_count_horizontal + 1):
+        for j in range(grid_count_vertical, -1, -1):
+            dst.append(
+                [m.ceil(nodes[i][j].loc.x * factor_x), m.ceil((grid_count_vertical - nodes[i][j].loc.y) * factor_y)])
+
+    dst = np.array(dst)
+
+    # dst = np.array([[0, 0], [0, 400], [400, 0], [400, 400]])
+
+    src = []
+
+    # print(output_image_size)
+    for i in range(grid_count_horizontal + 1):
+        for j in range(grid_count_vertical + 1):
+            block_width = input_image.size[0] / grid_count_horizontal
+            block_height = input_image.size[1] / grid_count_vertical
+            upper_left_x = i * block_width
+            upper_left_y = j * block_height
+            src.append([m.ceil(upper_left_x), m.ceil(upper_left_y)])
+    src = np.array(src)
+    # src = np.array([[0, 0], [0, 400], [400, 0], [200, 400]])
+    tform = PiecewiseAffineTransform()
+    tform.estimate(dst, src)
+    out = warp(input_image, tform, output_shape=(output_image_size[0], output_image_size[1]))
+
+    # fig, ax = plt.subplots()
+    # ax.imshow(out)
+    # ax.plot(tform.inverse(src)[:, 0], tform.inverse(src)[:, 1], '.b')
+    # ax.axis((0, out_cols, out_rows, 0))
+
+    output_path = 'output/' + filename + '.png'
+
+    plt.imsave(output_path, out)
+
+    if is_draw_border:
+        # Draw all the faces
+        im = Image.open(output_path).convert('RGB')
+        d = ImageDraw.Draw(im)
+        for i in range(grid_count_horizontal):
+            for j in range(grid_count_vertical, 0, -1):
+                width_value = randint(3, 5)
+                d.line(
+                    [tuple(Point2D(nodes[i][j].loc.x * factor_x, (grid_count_vertical - nodes[i][j].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i][j - 1].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i][j - 1].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i + 1][j - 1].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i + 1][j - 1].loc.y) * factor_y))
+                        , tuple(Point2D(nodes[i + 1][j].loc.x * factor_x,
+                                        (grid_count_vertical - nodes[i + 1][j].loc.y) * factor_y))]
+                    , fill="white", width=width_value)
+
+        actualFileName = 'output/' + filename + '_with_rand_border.png'
+        im.save(actualFileName)
+
+    return output_path
 
 def newImageDrawTopToBottom(input_image, nodes, filename, grid_count_horizontal, grid_count_vertical):
     output_image_size = input_image.size

@@ -7,13 +7,13 @@ matplotlib.use("agg")
 from matplotlib import pyplot
 from pandas import DataFrame
 
-grid = 16
+grid = 128
 #file_path = "Datasets/RandomCheckerData/FastFlow/Weight/"
 #input_file_name_list = ["Checker_Data_20_32_32.txt", "Checker_Data_40_32_32.txt", "Checker_Data_60_32_32.txt",
 #                        "Checker_Data_80_32_32.txt", "Checker_Data_100_32_32.txt"]
 
-file_path = "Datasets/Applications/mosaic/Fast Flow/Image_4/"
-input_file_name_list = ["Whistlejacket_randomweight_16_16.txt"]
+file_path = "input/"
+input_file_name_list = ["vinci_weight_128_128.txt"]
 
 for input_file_name in input_file_name_list:
     output_file_name = input_file_name.split('.')[0]

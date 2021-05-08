@@ -54,10 +54,10 @@ input_img_file = sys.argv[3]
 
 
 '''
-square_grid = 16
-input_data_file = "input/Whistlejacket_randomweight_16_16.txt"
+square_grid = 64
+input_data_file = "input/Whistlejacket_randomweight_64_64.txt"
 input_img_file = "input/Whistlejacket.jpg"
-output_img_filename = 'output_Whistlejacket_mosaic_randomweight_16_16'
+output_img_filename = 'output_Whistlejacket_mosaic_randomweight_64_64_b1'
 
 
 
@@ -598,6 +598,9 @@ if __name__ == "__main__":
 
     output_image_path = newImageDraw(input_image, nodes, output_img_filename,
                                      grid_count_horizontal_actual, grid_count_vertical_actual, True)
+
+    #output_image_path = newImageDrawWithRandomBorder(input_image, nodes, output_img_filename,
+    #                                 grid_count_horizontal_actual, grid_count_vertical_actual, True)
 
     output_image = Image.open(output_image_path)
     out_image = np.asarray(output_image.convert("RGBA"))

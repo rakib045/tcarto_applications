@@ -51,9 +51,9 @@ output_img_filename = sys.argv[4]
 input_img_file = sys.argv[3]
 
 '''
-square_grid = 64
-input_data_file = "input/vis_weight_64_64.txt"
-output_img_filename = "DivideAndConq_VIS_64_64"
+square_grid = 128
+input_data_file = "input/vinci_weight_128_128.txt"
+output_img_filename = "DivideAndConq_VINCI_128_128"
 
 
 grid_count_horizontal_actual = square_grid
@@ -65,7 +65,7 @@ cpu_count = mp.cpu_count()
 is_max_heiristic = True
 boundary_node_movement = True
 iteration = 0
-output_image_size = [512, 512]
+output_image_size = [3200, 3200]
 
 
 total_algo_processing_time = []

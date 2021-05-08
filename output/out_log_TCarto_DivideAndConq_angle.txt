@@ -1,9 +1,0 @@
-Preprocess the data once at each stage
-Stage, Iteration, |UV-EV|/EV, UV/EV - 1, RMSE, MQE = (((|UV-EV|/EV) ** 2) ** 0.5)/N, Updated MQE = (((|UV-EV|/(UV+EV)) ** 2) ** 0.5)/N, Pre processing Time(sec), Iteration Time(sec)
-0, 1, 0.1898, 0.0589, 0.2783, 0.1392, 0.061393, 1.25641, 0.723077, 0.001, 4.4268
-0, 2, 0.0133, 0.0055, 0.0134, 0.0067, 0.003333, 1.456886, 0.670793, 0.001, 4.3074
-0, 3, 0.0034, -0.0016, 0.0051, 0.0026, 0.001285, 1.466133, 0.66348, 0.001, 4.1659
-
-
-Total Pre Processing Time(sec): 0.001
-Total Processing Time(sec): 12.9011
