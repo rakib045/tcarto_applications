@@ -11,15 +11,15 @@ class node:
         self.loc = loc
 
 
-input_node_data_file = "Datasets/Applications/mosaic/Fast Flow/Image_4/final_nodes_image4_64_64.csv"
-input_weight_data_file = "Datasets/Applications/mosaic/Fast Flow/Image_4/Whistlejacket_randomweight_64_64.txt"
+input_node_data_file = "Datasets/Applications/mosaic/Fast Flow/Image_6/final_nodes_image6_64_64.csv"
+input_weight_data_file = "Datasets/Applications/mosaic/Fast Flow/Image_6/Girls_randomweight_64_64.txt"
 
-output_filename = 'output_mosaic_fastflow_Whistlejacket_64_64'
+output_filename = 'output_mosaic_fastflow_Girls_64_64'
 square_grid = 64
 output_image_size = [1024, 1024]
 
 is_image_output = True
-input_img_file = "Datasets/Applications/mosaic/Fast Flow/Image_4/Whistlejacket.jpg"
+input_img_file = "Datasets/Applications/mosaic/Fast Flow/Image_6/girls.png"
 
 
 

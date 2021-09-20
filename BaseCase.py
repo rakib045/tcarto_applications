@@ -20,10 +20,10 @@ input_img_file = sys.argv[3]
 output_img_filename = sys.argv[4]
 '''
 
-square_grid = 64
-input_data_file = "input/PBLH_64_64.txt"
+square_grid = 4
+input_data_file = "input/a.txt"
 input_img_file = 'input/EMISS512.png'
-output_img_filename = "Basecase_PBLH_EMISS_64_64"
+output_img_filename = "Basecase_a_4_4"
 
 size_output_image = [512, 512]
 # When is_stop_with_rmse = True, rmse_threshold will work only then. Iteration stops when it crosses rmse less than threshold
@@ -374,7 +374,7 @@ def findTargetedPointProjection(values, grid_count):
 
         elif i % 2 == 0:
             middle_triangles = getWeightedTrianglesCenterBottomToTop(temp_triangle_points[i],
-                                                                     table_top[:, (i - 1): (i - 1) + 2])
+                                                                     table_top[:, (i - 1): (i - 1) + 2])*
             for index in range(0, len(middle_triangles), 1):
                 if index % 2 == 0:
                     targeted_nodes[i - 1][split_row - 1 - int(index / 2)].loc = Point2D(middle_triangles[index][0])

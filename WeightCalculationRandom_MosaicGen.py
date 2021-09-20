@@ -4,8 +4,8 @@ from collections import Counter
 import itertools
 
 
-square_grid = 64
-output_weight_filename = "Whistlejacket_randomweight_64_64"
+square_grid = 16
+output_weight_filename = "Girls_randomweight_16_16"
 min_weight_range = 1
 max_weight_range = 5
 
